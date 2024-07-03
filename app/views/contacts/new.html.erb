@@ -1,0 +1,29 @@
+<div class="max-w-xl m-auto">
+  <%= form_with model: @contact, url: confirm_contacts_path, data: { turbo: false }, class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f| %>
+    <%= render(Utility::ErrorMessagesComponent.new(model: f.object)) %>
+    
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :name, title: 'お名前', id: 'name')) %>
+      <%= render(Form::TextInputComponent.new(form: f, name: :name, id: 'name', placeholder: 'ねこ 太郎')) %>
+    </div>
+
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :email, title: 'メールアドレス', id: 'email')) %>
+      <%= render(Form::EmailInputComponent.new(form: f, name: :email, id: 'email', placeholder: 'nekoneko@neko.com')) %>
+    </div>
+
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :subject, title: '件名', id: 'subject')) %>
+      <%= render(Form::TextareaComponent.new(form: f, name: :subject, id: 'subject')) %>
+    </div>
+
+    <div class="mb-6">
+      <%= render(Form::LabelComponent.new(form: f, name: :message, title: 'メッセージ', id: 'message')) %>
+      <%= render(Form::TextareaComponent.new(form: f, name: :message, id: 'message', size: '10x10')) %>
+    </div>
+
+    <div class="flex justify-end">
+      <%= f.submit '入力内容確認', class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>
+</div>

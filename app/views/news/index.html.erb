@@ -1,0 +1,10 @@
+<%= render(Utility::PageTitleComponent.new(title: 'News')) %>
+
+<div class="flex pb-16">
+  <section class="basis-2/12 shrink-0">
+    <%= render(Navigation::TagComponent.new(tags: @tags, current_tag: @current_tag)) %>
+  </section>
+  <section class="basis-10/12 grid grid-cols-3 gap-8">
+    <%= render(Card::CardComponent.new(card: @news, path: '/news'))%>
+  </section>
+</div>

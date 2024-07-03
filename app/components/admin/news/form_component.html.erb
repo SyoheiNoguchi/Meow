@@ -1,0 +1,38 @@
+<%= form_with model: @model, url: @url, data: { turbo: false }, class: 'shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f| %>
+  <%= render(Utility::ErrorMessagesComponent.new(model: f.object)) %>
+
+  <div class="flex items-center mb-4">
+    <%= render(Form::CheckboxComponent.new(form: f, name: :publish, id: 'publish')) %>
+    <%= render(Form::LabelComponent.new(form: f, name: :publish, title: '公開する', id: 'publish', additional_class: "ml-2 !mb-0 font-normal")) %>
+  </div>
+  
+  <div class="mb-4">
+    <%= render(Form::LabelComponent.new(form: f, name: :title, title: 'タイトル', id: 'title')) %>
+    <%= render(Form::TextInputComponent.new(form: f, name: :title, id: 'title', placeholder: '')) %>
+  </div>
+
+  <div class="mb-4">
+    <%= render(Form::LabelComponent.new(form: f, name: :description, title: '内容', id: 'description')) %>
+    <%= render(Form::TextInputComponent.new(form: f, name: :description, id: 'description', placeholder: '')) %>
+  </div>
+
+  <div class="mb-4">
+    <%= render(Form::LabelComponent.new(form: f, name: :tag_id, title: 'タグ', id: 'tag_id')) %>
+    <%= render(Form::SelectComponent.new(form: f, name: :tag_id, collection: @tag_collections, selected: @model.tag_id, id: 'tag_id')) %>
+  </div>
+
+  <div class="mb-4">
+    <%= render(Form::LabelComponent.new(form: f, name: :writer_id, title: '記者名', id: 'writer_id')) %>
+    <%= render(Form::SelectComponent.new(form: f, name: :writer_id, collection: @writer_collections, selected: @model.writer_id, id: 'writer_id')) %>
+  </div>
+
+  <div class="mb-4">
+    <%= render(Form::LabelComponent.new(form: f, name: :image, title: 'サムネイル画像', id: 'image')) %>
+    <%= render(Form::FileInputComponent.new(form: f, name: :image, id: 'image')) %>
+    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+  </div>
+
+  <div class="flex justify-end">
+    <%= f.submit '登録', class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>

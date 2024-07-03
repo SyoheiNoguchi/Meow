@@ -1,0 +1,11 @@
+<div class="mb-4">
+  <figure>
+    <% if @news.image.attached? %>
+      <%= image_tag @news.image, class: 'w-full h-80 object-cover', alt: 'ニュース画像' %>
+    <% else %>
+      <%= image_tag "/assets/news/#{@news.id}.jpg", class: 'w-full h-80 object-cover', alt: 'ニュース画像' %>
+    <% end %>
+  </figure>
+</div>
+<h2><%= @news.title %></h2>
+<p><%= @news.description %></p>

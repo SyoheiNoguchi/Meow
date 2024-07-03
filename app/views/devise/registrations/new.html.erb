@@ -1,0 +1,40 @@
+<div class="max-w-xl m-auto">
+  <h1 class="mb-4 font-bold text-center">Meowに新規登録</h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'shadow-md rounded px-8 pt-6 pb-8 mb-14' }) do |f| %>
+    <%= render(Utility::ErrorMessagesComponent.new(model: f.object)) %>
+
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :name, title: 'お名前', id: 'name')) %>
+      <%= render(Form::TextInputComponent.new(form: f, name: :name, id: 'name', placeholder: 'ねこ 太郎')) %>
+    </div>
+
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :email, title: 'メールアドレス', id: 'email')) %>
+      <%= render(Form::EmailInputComponent.new(form: f, name: :email, id: 'email', placeholder: 'nekoneko@neko.com')) %>
+    </div>
+
+    <div class="mb-4">
+      <div class="flex">
+        <%= render(Form::LabelComponent.new(form: f, name: :password, title: 'パスワード', id: 'password')) %>
+        <% if @minimum_password_length %>
+          <small>※ 最低<%= @minimum_password_length %> 文字以上</small>
+        <% end %>
+      </div>
+      <%= render(Form::PasswordInputComponent.new(form: f, name: :password, autocomplete: 'new-password', id: 'password')) %>
+    </div>
+
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :password_confirmation, title: 'パスワード（確認用）', id: 'password_confirmation')) %>
+      <%= render(Form::PasswordInputComponent.new(form: f, name: :password_confirmation, autocomplete: 'new-password', id: 'password_confirmation')) %>
+    </div>
+
+    <div class="flex justify-end">
+      <%= f.submit '新規登録', class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>
+
+  <div class="group flex flex-col justify-center items-center">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#f08a2b",
+        "titleBar.activeForeground": "#ffffff",
+        "statusBar.background": "#f08a2b", // ステータスバーの背景色
+        "statusBar.foreground": "#ffffff", // ステータスバーの文字色
+    }
+}

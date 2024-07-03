@@ -1,0 +1,29 @@
+<div class="max-w-xl m-auto">
+  <h1 class="mb-4 font-bold text-center">ログイン</h1>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'shadow-md rounded px-8 pt-6 pb-8 mb-14' }) do |f| %>
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :email, title: 'メールアドレス', id: 'email')) %>
+      <%= render(Form::EmailInputComponent.new(form: f, name: :email, id: 'email', placeholder: 'nekoneko@neko.com')) %>
+    </div>
+
+    <div class="mb-4">
+      <%= render(Form::LabelComponent.new(form: f, name: :password, title: 'パスワード', id: 'password')) %>
+      <%= render(Form::PasswordInputComponent.new(form: f, name: :password, autocomplete: 'current-password', id: 'password')) %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="flex items-center mb-6">
+        <%= render(Form::CheckboxComponent.new(form: f, name: :remember_me, id: 'remember_me')) %>
+        <%= render(Form::LabelComponent.new(form: f, name: :remember_me, title: '次回から自動でログインする', id: 'remember_me', additional_class: "ml-2 !mb-0 font-normal")) %>
+      </div>
+    <% end %>
+
+    <div class="flex justify-end">
+      <%= f.submit 'ログイン', class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>    
+  <% end %>
+
+  <div class="flex flex-col justify-center items-center [&_a]:mb-4">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

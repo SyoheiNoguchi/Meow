@@ -1,0 +1,19 @@
+[
+  {
+    "name": "こころちゃん",
+    "description": "説明が入ります。",
+    "appeal": "アピールポイントが入ります。",
+    "health": "健康状態が入ります。",
+    "age": "9ヶ月",
+    "weight": 2.8,
+    "from": "日本",
+    "gender": "メス",
+    "type": "雑種",
+    "cost": 32500,
+    "castration": true,
+    "protection_group": "NPO法人 猫の森",
+    "region": "茨城",
+    "tag": "茶トラ",
+    "status": "募集中"
+  }
+]

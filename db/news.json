@@ -1,0 +1,72 @@
+[
+  {
+    "title": "昔懐かし和風保護猫カフェ ネコリパ大阪店「ねこ浴場」",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 1,
+    "tag_id": 1,
+    "publish": true
+  },
+  {
+    "title": "いっしょに猫助けしませんか？ ボランティアさん募集中",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 2,
+    "tag_id": 2,
+    "publish": false
+  },
+  {
+    "title": "猫と一緒に暮らしたい！猫と暮らすキャットライフ",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 2,
+    "tag_id": 3,
+    "publish": false
+  },
+  {
+    "title": "保護猫譲渡会のお知らせ",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 3,
+    "tag_id": 4,
+    "publish": true
+  },
+  {
+    "title": "あなたの街の気になる名医",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 3,
+    "tag_id": 1,
+    "publish": true
+  },
+  {
+    "title": "ネコと共に暮らす賃貸",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 2,
+    "tag_id": 3,
+    "publish": false
+  },
+  {
+    "title": "ネコとチル",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 1,
+    "tag_id": 3,
+    "publish": true
+  },
+  {
+    "title": "ネコちゃン飼ったらかかるお金大全",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 3,
+    "tag_id": 5,
+    "publish": false
+  },
+  {
+    "title": "あなたの街のネコカフェ特集",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 4,
+    "tag_id": 1,
+    "publish": true
+  },
+  {
+    "title": "ロシアンブルーの魔力",
+    "description": "テキストが入りますテキストが入りますテキストが入ります",
+    "writer_id": 5,
+    "tag_id": 6,
+    "publish": false
+  }
+]

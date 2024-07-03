@@ -1,0 +1,16 @@
+<h1 class="my-6 text-3xl font-bold">News</h1>
+
+<div class="bg-white py-4 px-8 mb-6 shadow rounded">
+  <div class="mb-8 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+    <ul class="flex flex-wrap">
+      <li>
+        <%= link_to '一覧', admin_news_index_path, class: "inline-block p-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>
+      </li>
+      <li>
+        <%= link_to '新規作成', new_admin_news_path, class: "inline-block p-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>
+      </li>
+    </ul>
+  </div>
+
+  <%= render(Admin::News::FormComponent.new(model: @news, url: admin_news_path, tag_collections: @tag_collections, writer_collections: @writer_collections)) %>
+</div>

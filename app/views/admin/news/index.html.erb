@@ -1,0 +1,62 @@
+<h1 class="my-6 text-3xl font-bold">News</h1>
+
+<div class="bg-white py-4 px-8 mb-6 shadow rounded">
+  <div class="mb-8 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+    <ul class="flex flex-wrap">
+      <li>
+        <%= link_to '一覧', admin_news_index_path, class: "inline-block py-4 px-6 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" %>
+      </li>
+      <li>
+        <%= link_to '新規作成', new_admin_news_path, class: "inline-block p-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="flex justify-end my-8">
+    <%= form_tag admin_news_index_path, method: 'get' do %>
+      <label>タグ検索：</label>
+      <%= select_tag :tag_id, options_for_select(@tag_collections, selected: @current_tag), {include_blank: "全て", class: "shadow appearance-none border rounded py-2 pl-3 pr-8 leading-tight focus:outline-none focus:shadow-outline"} %>
+      <label class="ml-2">タイトル検索：</label>
+      <%= text_field_tag :query, params[:query], class: "shadow appearance-none border rounded py-2 px-3 mr-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= submit_tag "検索", name: nil, class: "btn btn-outline btn-sm" %>
+    <% end %>
+  </div>
+
+  <section class="pb-4 mb-4 border-b border-gray-100">
+    <div class="grid grid-cols-[3rem_1fr_6rem_6rem_4rem_10rem_6rem] gap-4 items-center text-sm font-bold">
+      <p>ID</p>
+      <p>タイトル</p>
+      <p>タグ</p>
+      <p>記者</p>
+      <p>状態</p>
+      <p>サムネイル</p>
+      <p>操作</p>
+    </div>
+  </section>
+
+  <section class="max-h-[calc(100vh-414px)] overflow-y-scroll">
+    <%= render(Utility::NoItemComponent.new()) unless @news.present? %>
+    <ul>
+      <% @news.each do |news| %>
+        <li class="grid grid-cols-[3rem_1fr_6rem_6rem_4rem_10rem_6rem] gap-4 items-center mb-2 text-sm">
+          <p><%= news.id %></p>
+          <h5 class="line-clamp-2 font-bold"><%= news.title %></h5>
+          <p><%= news.tag.name %></p>
+          <p><%= news.writer.name %></p>
+          <p><%= news.publish ? "公開" : "未公開" %></p>
+          <figure>
+            <% if news.image.attached? %>
+              <%= image_tag news.image, class: 'w-40 h-20 object-cover rounded-md', alt: 'サムネイル画像' %>
+            <% else %>
+              <%= image_tag "/assets/news/#{news.id}.jpg", class: 'w-40 h-20 object-cover rounded-md', alt: 'サムネイル画像' %>
+            <% end %>
+          </figure>
+          <div class="flex justify-evenly text-sm">
+            <%= link_to '編集', edit_admin_news_path(news), class: 'btn btn-outline btn-info btn-xs text-white font-normal' %>
+            <%= button_to '削除', admin_news_path(news), type: 'button', class: 'btn btn-outline btn-error btn-xs text-white font-normal', method: :delete, data: { turbo_confirm: '削除してよろしいですか' } %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>

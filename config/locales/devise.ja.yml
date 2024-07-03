@@ -1,0 +1,12 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+en:
+  devise:
+    failure:
+      invalid: "%{authentication_keys}またはパスワードはアカウントにリンクされていません。"
+      not_found_in_database: "%{authentication_keys}またはパスワードはアカウントにリンクされていません。"
+      unauthenticated: "ログインまたは新規登録を行ってください。"
+    sessions:
+      signed_in: "ログインに成功しました"
+      signed_out: "ログアウトに成功しました"
+      already_signed_out: "既にログアウトしています"

@@ -1,0 +1,9 @@
+<div class="text-xs">
+  <p class="mb-3 text-sm font-bold">テーマで絞り込む</p>
+  <ul>
+    <li><%= link_to 'すべて', 'index', class: "#{ 'bg-yellow-300' if @current_tag.nil? } inline-block mb-3 px-4 py-1 border border-gray-400 rounded-full hover:bg-yellow-300 transition ease-in duration-300" %></li>
+    <% @tags.each do |tag| %>
+      <li><%= link_to tag.name, "index?tag_id=#{tag.id}", class: "#{ 'bg-yellow-300' if @current_tag == tag.id.to_s} inline-block mb-3 px-4 py-1 border border-gray-400 rounded-full hover:bg-yellow-300 transition ease-in duration-300" %></li>
+    <% end %>
+  </ul>
+</div>
